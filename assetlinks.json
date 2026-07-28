@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "sh.surge.glowbook_salon_5566.twa",
+      "sha256_cert_fingerprints": [
+        "EF:D3:3A:7F:B8:47:20:CB:6A:D6:90:D3:FD:37:AF:78:E2:13:1B:33:ED:46:00:98:AB:A1:48:D3:0A:83:EF:52"
+      ]
+    }
+  }
+]
