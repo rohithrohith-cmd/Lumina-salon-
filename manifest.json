@@ -1,0 +1,29 @@
+{
+  "name": "Lumina Style Salon Booking",
+  "short_name": "LuminaStyle",
+  "description": "Premium hair salon booking platform under Lumina Style",
+  "start_url": "/index.html",
+  "id": "/index.html",
+  "display": "standalone",
+  "background_color": "#FAF9F7",
+  "theme_color": "#C9907A",
+  "orientation": "portrait-primary",
+  "categories": [
+    "beauty",
+    "lifestyle",
+    "business"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
