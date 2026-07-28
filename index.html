@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#C9907A">
+    <title>Lumina Style — Salon Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <!-- Client Navbar (shown for client role) -->
+    <nav class="navbar" id="client-navbar" style="display: none;">
+        <div class="navbar-brand">
+            <a href="#/home" class="navbar-logo">Lumina<span>Style</span></a>
+        </div>
+        <div class="navbar-links" id="navbar-links">
+            <a href="#/services" class="navbar-link" data-route="/services">Services</a>
+            <a href="#/stylists" class="navbar-link" data-route="/stylists">Stylists</a>
+            <a href="#/my-bookings" class="navbar-link" data-route="/my-bookings">My Bookings</a>
+        </div>
+        <div class="navbar-actions">
+            <div class="notification-bell" id="notification-bell-client" onclick="App.toggleNotificationPanel(event, 'client')"></div>
+            <div class="navbar-profile" id="navbar-profile" onclick="Router.navigate('/profile')">
+                <div class="avatar avatar-sm avatar-placeholder" id="navbar-avatar"></div>
+                <span class="navbar-profile-name" id="navbar-name"></span>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="Auth.logout()" title="Logout" style="font-size: 1.1rem; padding: 4px 8px;">↗️</button>
+        </div>
+        <button class="menu-toggle" id="mobile-menu-toggle" onclick="App.toggleMobileMenu()">☰</button>
+    </nav>
+
+    <!-- Admin/Stylist Sidebar (shown for stylist/admin role) -->
+    <div class="sidebar-layout" id="sidebar-layout" style="display: none;">
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="App.closeSidebar()"></div>
+        <aside class="sidebar" id="admin-sidebar">
+            <div class="sidebar-brand">
+                <a href="#/dashboard" class="navbar-logo">Lumina<span>Style</span></a>
+            </div>
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <div class="sidebar-section-title">Overview</div>
+                <a href="#/dashboard" class="sidebar-link admin-only" data-route="/dashboard">
+                    <span class="sidebar-link-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#/appointments" class="sidebar-link" data-route="/appointments">
+                    <span class="sidebar-link-icon">📋</span>
+                    <span>Appointments</span>
+                </a>
+                <div class="sidebar-section-title admin-only">Manage</div>
+                <a href="#/availability" class="sidebar-link admin-only" data-route="/availability">
+                    <span class="sidebar-link-icon">🕐</span>
+                    <span>Availability</span>
+                </a>
+                <a href="#/admin-services" class="sidebar-link admin-only" data-route="/admin-services">
+                    <span class="sidebar-link-icon">✂️</span>
+                    <span>Services</span>
+                </a>
+                <a href="#/admin-stylists" class="sidebar-link admin-only" data-route="/admin-stylists">
+                    <span class="sidebar-link-icon">💇</span>
+                    <span>Stylists</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-link" style="cursor: default;">
+                    <span class="sidebar-link-icon">👤</span>
+                    <span id="sidebar-user-name"></span>
+                </div>
+                <a href="#" class="sidebar-link" onclick="Auth.logout(); return false;">
+                    <span class="sidebar-link-icon">↗️</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        <main class="sidebar-content">
+            <div class="flex-between" style="margin-bottom: 24px;">
+                <button class="menu-toggle" id="sidebar-toggle" onclick="App.toggleSidebar()">☰</button>
+                <div class="notification-bell" id="notification-bell-admin" onclick="App.toggleNotificationPanel(event, 'admin')"></div>
+            </div>
+            <div id="admin-content"></div>
+        </main>
+    </div>
+
+    <!-- Client Main Content (shown for client/guest) -->
+    <main class="app-layout" id="client-layout" style="display: none;">
+        <div class="app-content" id="app-content"></div>
+    </main>
+
+    <!-- Auth Layout (login/register) -->
+    <div id="auth-layout" style="display: none;">
+        <div id="auth-content"></div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Notification Panel (shared, positioned dynamically) -->
+    <div class="notification-panel" id="notification-panel" style="display: none;"></div>
+
+    <!-- Mobile Bottom Tabs (client mobile only) -->
+    <nav class="mobile-tabs" id="mobile-tabs" style="display: none;">
+        <a href="#/home" class="mobile-tab" data-route="/home">
+            <span class="mobile-tab-icon">🏠</span>
+            <span>Home</span>
+        </a>
+        <a href="#/services" class="mobile-tab" data-route="/services">
+            <span class="mobile-tab-icon">✂️</span>
+            <span>Services</span>
+        </a>
+        <a href="#/booking" class="mobile-tab" data-route="/booking">
+            <span class="mobile-tab-icon">📅</span>
+            <span>Book</span>
+        </a>
+        <a href="#/my-bookings" class="mobile-tab" data-route="/my-bookings">
+            <span class="mobile-tab-icon">📋</span>
+            <span>Bookings</span>
+        </a>
+        <a href="#/profile" class="mobile-tab" data-route="/profile">
+            <span class="mobile-tab-icon">👤</span>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <!-- Scripts in dependency order -->
+    <script src="js/utils.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/seed.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/views/home.js"></script>
+    <script src="js/views/services.js"></script>
+    <script src="js/views/stylists.js"></script>
+    <script src="js/views/booking.js"></script>
+    <script src="js/views/my-bookings.js"></script>
+    <script src="js/views/profile.js"></script>
+    <script src="js/views/dashboard.js"></script>
+    <script src="js/views/appointments.js"></script>
+    <script src="js/views/availability.js"></script>
+    <script src="js/views/admin-services.js"></script>
+    <script src="js/views/admin-stylists.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Register Service Worker for PWA mobile support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('📱 Service Worker registered successfully:', reg.scope))
+                    .catch(err => console.error('❌ Service Worker registration failed:', err));
+            });
+        }
+    </script>
+</body>
+</html>

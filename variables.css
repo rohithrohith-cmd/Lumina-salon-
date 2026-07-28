@@ -1,0 +1,92 @@
+:root {
+    /* Color Palette - Warm Minimalism (Salon Aesthetic) */
+    --bg-primary: #FAF9F7;        /* Creamy off-white */
+    --bg-secondary: #F3F0ED;      /* Warm sand/grey */
+    --bg-card: #FFFFFF;           /* Card white */
+    
+    --text-primary: #2D231F;      /* Warm dark mahogany/espresso */
+    --heading-primary: #3D2820;   /* Rich warm dark chocolate/bronze for all headings */
+    --text-secondary: #6B625E;    /* Muted warm charcoal */
+    --text-muted: #9C938E;        /* Soft warm grey */
+    
+    --accent-primary: #C9907A;    /* Rose gold */
+    --accent-primary-hover: #B8805A; /* Darker rose gold */
+    --accent-primary-light: rgba(201, 144, 122, 0.1);
+    
+    --accent-secondary: #8FAF9A;  /* Sage green */
+    --accent-secondary-light: rgba(143, 175, 154, 0.1);
+    
+    /* Status Colors */
+    --status-pending: #D4A843;
+    --status-pending-bg: rgba(212, 168, 67, 0.1);
+    
+    --status-confirmed: #8FAF9A;
+    --status-confirmed-bg: rgba(143, 175, 154, 0.1);
+    
+    --status-cancelled: #C75C5C;
+    --status-cancelled-bg: rgba(199, 92, 92, 0.1);
+    
+    --status-completed: #8E8E93;
+    --status-completed-bg: rgba(142, 142, 147, 0.1);
+    
+    /* Global Styles */
+    --border: #E8E5E1;
+    --border-light: #F0EDEA;
+    --overlay: rgba(0, 0, 0, 0.4);
+    --white: #FFFFFF;
+    
+    --danger: #C75C5C;
+    --danger-hover: #B54A4A;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Font Sizes */
+    --font-xs: 0.75rem;
+    --font-sm: 0.8125rem;
+    --font-md: 0.875rem;
+    --font-base: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 2rem;
+    --font-4xl: 2.5rem;
+    --font-5xl: 3rem;
+    
+    /* Font Weights */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    
+    /* Border Radii */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-pill: 999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+}
